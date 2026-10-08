@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: shopsphere
+
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5433/shopsphere
+    username: shopsphere_user
+    password: shopsphere_pass
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+app:
+   jwt:
+      secret: "shopsphere-super-secret-key-for-jwt-signing-2026"
+      access-token-expiry-ms: 900000
+      refresh-token-expiry-ms: 604800000
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    com.zaxxer.hikari: DEBUG
+    org.postgresql: DEBUG

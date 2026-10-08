@@ -1,0 +1,17 @@
+# Week 1: just the database. You'll add the app itself, Redis, and Kafka
+# to this file in later weeks once those pieces exist.
+services:
+  postgres:
+    image: postgres:16
+    container_name: shopsphere-postgres
+    environment:
+      POSTGRES_DB: shopsphere
+      POSTGRES_USER: shopsphere_user
+      POSTGRES_PASSWORD: shopsphere_pass
+    ports:
+      - "5433:5432"
+    volumes:
+      - shopsphere_pgdata:/var/lib/postgresql/data
+
+volumes:
+  shopsphere_pgdata:
